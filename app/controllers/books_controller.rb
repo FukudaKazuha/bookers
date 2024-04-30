@@ -16,7 +16,8 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all  
+    @books = Book.all 
+     @book=Book.new
   end
 
   def show
@@ -24,6 +25,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+     @book = Book.find(params[:id])  
   end
   
   # プライベートより後に定義されたメソッドは、アクションとして認識されなくなる。つまりURLと対応できなくなる。

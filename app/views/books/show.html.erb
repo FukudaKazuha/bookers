@@ -1,12 +1,22 @@
+<!--show投稿詳細画面、/books/id-->
+
 <h2>本のタイトル</h2>
 <p><%= @book.title %></p>
 
 <h2>感想</h2>
 <p><%= @book.body %></p>
 
-
+ <span>
+    <%= link_to "edit",edit_book_path(book)%>
+  </span>
+  <!--show、データの詳細表示-->
 <!--<h1>Books#show</h1>-->
-<!--<p>Find me in app/views/books/show.html.erb</p>-->
+
+  <span>
+    <%= link_to "Back","/books" %>
+  </span>
+  <!--Back、投稿一覧表示-->
+ 
 
 <!--投稿後の一覧が表示されてほしい-->
 <!--一覧には投稿の成功失敗、入力内容とタイトルとボディーカラム、編集画面に遷移するEdit、前の画面に戻るBack-->
