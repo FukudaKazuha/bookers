@@ -11,17 +11,20 @@
   <p>感想</p>
   <span><%= book.body %></span>
   
-  <!--index、投稿一覧表示-->
+  <!--show、投稿一覧表示-->
    <span>
-    <%= link_to "show",book_path(book) %>
+    <%= link_to "Show",book_path(book) %>
+  </span>
+  <!--edit、投稿一編集画面-->
+   <span>
+    <%= link_to "Edit",edit_book_path(book) %>
   </span>
   
+  <!--destroy-->
    <span>
-    <%= link_to "edit",edit_book_path(book) %>
-  </span>
-  
-   <span>
-    <%= link_to "destroy" %>
+    <%= link_to "Destroy",destroy_books_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+    <!--destroy_　がいらない？-->
+    <!--そもそもdestroy_books_path(@book.id)がいらない？-->
     <!--viewページ、遷移なし。削除機能だけ。-->
   </span>
   
