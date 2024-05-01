@@ -3,8 +3,13 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
 
-<!--titleとbody書く-->
+<!--tdタグで囲う-->
+
+  <p>本のタイトル</p>
+  <span><%= book.title %></span>
   
+  <p>感想</p>
+  <span><%= book.body %></span>
   
   <!--index、投稿一覧表示-->
    <span>
