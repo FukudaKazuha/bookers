@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     redirect_to book_path(book.id)
     # リダイレクト先をshow投稿一覧にする
     else
-    @books=Books.all
+    @books=Book.all
     render :index 
     end
   end
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
   def destroy
     # viewページ必要ないから変数使わない
     book = Book.find(params[:id])
-    book.destroy(book_params)
+    book.destroy
     redirect_to '/books'
     # リダイレクトリンクはbooks_pathの方がいい？
     # render :index の方がいい？
