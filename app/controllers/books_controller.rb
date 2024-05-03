@@ -8,8 +8,8 @@ class BooksController < ApplicationController
     # viewページ必要ないから変数使わない
     book=Book.new(book_params)
     if book.save
-    redirect_to book_path(book.id)
-    # リダイレクト先をshow投稿一覧にする
+      flash[:notice] = "successfully"
+      redirect_to book_path(book.id)
     else
     @books=Book.all
     render :index 
@@ -34,15 +34,17 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     book.update(book_params)
     redirect_to book_path(book.id)  
+    flash[:notice] = "successfully"
   end
   
   def destroy
     # viewページ必要ないから変数使わない
     book = Book.find(params[:id])
     book.destroy
-    redirect_to '/books'
-    # リダイレクトリンクはbooks_pathの方がいい？
+    redirect_to books_path
+    # (book.idなんでいらんかったかは理解できてない)
     # render :index の方がいい？
+    flash[:notice] = "successfully"
   end
 
   

@@ -11,7 +11,8 @@
   </head>
 
   <body>
-    <!--フラッシュ-->
+    <!--showとindexで表示させたい全体の？フラッシュメッセージ-->
+    <%= flash[:notice] %>
     <%= yield %>
   </body>
 </html>

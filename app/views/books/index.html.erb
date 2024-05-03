@@ -1,7 +1,7 @@
 <!--index投稿一覧画面、new投稿画面、/books-->
 
+<!--フラッシュメッセージ-->
 <h1>Books</h1>
-
 
 <!--tableタグで囲う-->
 <table>
@@ -28,26 +28,19 @@
     <%= book.body %>
    </td>
    
-   
    <td>
   <!--show、投稿一覧表示-->
-   
     <%= link_to "Show",book_path(book) %>
-   
    </td>
   <!--edit、投稿一編集画面-->
    <td>
-   
     <%= link_to "Edit",edit_book_path(book) %>
-   
    </td>
   <!--destroy-->
    <td>
-   
     <%= link_to "Destroy",book_path(book.id),method: :delete, "data-confirm" => "本当に削除しますか？" %>
     <!--リンクはbooks_path(@book.id)でも/booksでもない？どっちも同じルーティングエラー出る-->
     <!--viewページなし、遷移なし。すでに投稿した分を削除するだけ。-->
-   
    </td>
   </tr>
   <% end %>
