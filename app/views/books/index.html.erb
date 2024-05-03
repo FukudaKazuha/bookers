@@ -1,6 +1,6 @@
 <!--index投稿一覧画面、new投稿画面、/books-->
 
-<!--フラッシュメッセージ-->
+<!--フラッシュメッセージはapplication.html.erbに-->
 <h1>Books</h1>
 
 <!--tableタグで囲う-->
@@ -44,7 +44,7 @@
    </td>
   </tr>
   <% end %>
-  <!--trは本の投稿数分ないといけない-->
+  <!--trは本の投稿数分ないといけないからeachメソッド使う-->
  </tbody>
 </table>
   
@@ -52,6 +52,16 @@
 
 <%= form_with model: @book do |f| %>
 <h1>New Book</h1>
+
+<!--ここにバリデーション-->
+<!--<% if @book.errors.any? %>-->
+<!--  <%= @book.errors.count %>件のエラーが発生しました-->
+<!--  <ul>-->
+<!--    <% @book.errors.full_messages.each do |message| %>-->
+<!--      <li><%= message %></li>-->
+<!--    <% end %>-->
+<!--  </ul>-->
+<!--<% end %>-->
 
 <h4>title</h4>
 <%= f.text_field:title %>

@@ -12,7 +12,7 @@ class BooksController < ApplicationController
       redirect_to book_path(book.id)
     else
     @books=Book.all
-    render :index 
+    render :new
     end
   end
 
@@ -33,8 +33,9 @@ class BooksController < ApplicationController
     # viewページ必要ないから変数使わない
     book = Book.find(params[:id])
     book.update(book_params)
-    redirect_to book_path(book.id)  
     flash[:notice] = "successfully"
+    render :edit
+    # redirect_to book_path(book.id)も使う  
   end
   
   def destroy
