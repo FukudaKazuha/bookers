@@ -8,9 +8,14 @@
 <h1>Editing Book</h1>
 
 <!--ここにバリデーション-->
-  <% if @book.errors.any? %>
-  <% @book.errors %>error
-  <% end %>
+<% if @book.errors.any? %>
+<%= @book.errors.count %>errors can't be blank
+ <ul>
+<% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <h4>本のタイトル</h4>
 <%= f.text_field:title %>

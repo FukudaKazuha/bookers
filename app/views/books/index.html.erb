@@ -54,13 +54,12 @@
 <h1>New Book</h1>
 
 <% if @book.errors.any? %>
-<% @book.errors %>error
-<!--<%= @book.errors.count %>件のエラーが発生しました-->
-<!-- <ul>-->
-<!--<% @book.errors.full_messages.each do |message| %>-->
-<!--    <li><%= message %></li>-->
-<!--    <% end %>-->
-<!--  </ul>-->
+<%= @book.errors.count %>errors can't be blank
+ <ul>
+<% @book.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
 <% end %>
 
 <h4>title</h4>
