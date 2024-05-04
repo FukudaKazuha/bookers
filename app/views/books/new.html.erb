@@ -12,15 +12,8 @@
 <!--<% end %>-->
 
  <!--バリデーション-->
- <!--<% if @book.errors.any? %>-->
+ 
  <!--@bookが存在する場合のみエラーメッセージを表示する-->
-<% if @book.present? && @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+
 
 <!--indexと同じページにするからここは記述なし？-->

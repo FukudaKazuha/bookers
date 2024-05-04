@@ -5,14 +5,14 @@ class BooksController < ApplicationController
   end
   
   def create
-    # viewページ必要ないから変数使わない
-    book=Book.new(book_params)
-    if book.save
+    # バリデーションを使わないときはviewページ必要ないからインスタンス変数使わない
+    @book=Book.new(book_params)
+    if @book.save
       flash[:notice] = "successfully"
-      redirect_to book_path(book.id)
+      redirect_to book_path(@book.id)
     else
     @books=Book.all
-    render :new
+    render :index
     end
   end
 
@@ -31,11 +31,14 @@ class BooksController < ApplicationController
   
   def update
     # viewページ必要ないから変数使わない
-    book = Book.find(params[:id])
-    book.update(book_params)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
     flash[:notice] = "successfully"
+    redirect_to book_path(@book.id)
+    else
     render :edit
     # redirect_to book_path(book.id)も使う  
+    end
   end
   
   def destroy
