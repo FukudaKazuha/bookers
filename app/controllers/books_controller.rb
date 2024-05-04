@@ -11,8 +11,8 @@ class BooksController < ApplicationController
       flash[:notice] = "successfully"
       redirect_to book_path(@book.id)
     else
-    @books=Book.all
-    render :index
+     @books=Book.all
+      render :index
     end
   end
 
@@ -30,13 +30,13 @@ class BooksController < ApplicationController
   end
   
   def update
-    # viewページ必要ないから変数使わない
+     # [バリデーションを使わないとき]はviewページ必要ないからインスタンス変数使わない
     @book = Book.find(params[:id])
     if @book.update(book_params)
-    flash[:notice] = "successfully"
-    redirect_to book_path(@book.id)
+      flash[:notice] = "successfully"
+      redirect_to book_path(@book.id)
     else
-    render :edit
+      render :edit
     # redirect_to book_path(book.id)も使う  
     end
   end
